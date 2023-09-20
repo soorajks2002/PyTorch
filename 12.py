@@ -37,6 +37,8 @@ for epoch in range(epochs):
     # Weight updation
     with torch.no_grad():
         w -= (dw*learning_rate)
+        # this is working as dw is copied previously and we arn't using w.grad over here 
+        # w.grad won't work here as torch.no_grad won't allow gradients of variables
 
     # w.data -= (dw*learning_rate)
 
